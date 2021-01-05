@@ -8,7 +8,7 @@
 fn main()
 {
   println!("Zadaj meno:");
-  let mut a = String::new();
+    let mut a = String::new();
   std::io::stdin().read_line(&mut a);
   println!("Zadaj pohlavie (M/Z):");
   let mut b = String::new();
@@ -25,21 +25,19 @@ fn main()
        let mut input = String::new();
       std::io::stdin().read_line(&mut input);
       let z: i32 = input.trim().parse().unwrap();
-      if 2021 - z < 18 {
+      if 2021 - z <= 18 {
             println!("Neplnolety, nemozeme pokracovat"); } else
              {
+               let year = 2021 - 18;
           let a = a.trim();
            let s = b.trim();
            let d = c.trim();
             let f = d.trim();
-           let g = input.trim();
+           let (g, y) = (input.trim(), y.to_string());
            let y = y.to_string();
            let g = vec![a,s,d,&y,g];
-           let a: String = g.iter().map(|a | a.trim()).fold(String::new(), |p,a| format!("{},{}", p, a));
+           let a: String = g.iter().map(|a | a.trim()).fold(String::new(), |p,a| format!("{},{}", p.trim(), a.trim()));
            std::fs::write("datafile.csv", a);
-           println!("ok");
-      }
-    }
-    else
+           println!("ok");  }}    else
     {
         println!("Nespravny udaj");}}
