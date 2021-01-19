@@ -29,7 +29,7 @@ impl Human {
                 .context("Zly format")?,
         };
         // current year from EPOCH time
-        let curr_year = SystemTime::now()
+        let curr_year = SystemTime::now() // TODO: calculate real age with chrome
             .duration_since(SystemTime::UNIX_EPOCH)?
             .as_secs()
             / 31556926 // calculates year
